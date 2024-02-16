@@ -11,15 +11,19 @@ class KingTest {
             PieceMoveTest()
                 .setup("white king C4, white rook C5")
                 .move("C4-C5")
-                .expectedIllegalBecauseOf(IllegalMoveReason.FRIEND_PIECE_ON_WAY),
+                .expectedIllegalBecauseOf(IllegalMoveReason.FRIEND_PIECE_IN_THE_WAY),
             PieceMoveTest()
                 .setup("white king C4, white rook D4")
                 .move("C4-D4")
-                .expectedIllegalBecauseOf(IllegalMoveReason.FRIEND_PIECE_ON_WAY),
+                .expectedIllegalBecauseOf(IllegalMoveReason.FRIEND_PIECE_IN_THE_WAY),
             PieceMoveTest()
                 .setup("white king C4")
                 .move("C4-C6")
-                .expectedIllegalBecauseOf(IllegalMoveReason.ILLEGAL_MOVE_SHAPE)
+                .expectedIllegalBecauseOf(IllegalMoveReason.ILLEGAL_MOVE_SHAPE),
+            PieceMoveTest()
+                .setup("white king C4, white rook D5")
+                .move("C4-D5")
+                .expectedIllegalBecauseOf(IllegalMoveReason.FRIEND_PIECE_IN_THE_WAY)
         ).map { it.build() }
     }
 
@@ -33,6 +37,22 @@ class KingTest {
                 .expectedLegal()
         }
         return moves.map { it.build() }
+    }
+
+    @TestFactory
+    fun `should allow takes`(): List<DynamicTest> {
+        return listOf(
+            PieceMoveTest()
+                .setup("black king D7, white rook E6")
+                .move("D7-E6")
+                .expectedLegal()
+                .build(),
+            PieceMoveTest()
+                .setup("black king D7, black rook D8, white rook D6")
+                .move("D7-D6")
+                .expectedLegal()
+                .build()
+        )
     }
 
     @TestFactory

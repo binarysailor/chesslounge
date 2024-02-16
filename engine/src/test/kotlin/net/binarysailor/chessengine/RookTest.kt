@@ -11,15 +11,15 @@ class RookTest {
             PieceMoveTest()
                 .setup("white rook A1, white king G1")
                 .move("A1-G1")
-                .expectedIllegalBecauseOf(IllegalMoveReason.FRIEND_PIECE_ON_WAY),
+                .expectedIllegalBecauseOf(IllegalMoveReason.FRIEND_PIECE_IN_THE_WAY),
             PieceMoveTest()
                 .setup("white rook A1, white king G1")
                 .move("A1-H1")
-                .expectedIllegalBecauseOf(IllegalMoveReason.FRIEND_PIECE_ON_WAY),
+                .expectedIllegalBecauseOf(IllegalMoveReason.FRIEND_PIECE_IN_THE_WAY),
             PieceMoveTest()
                 .setup("white rook A1, white king G1, black rook A3")
                 .move("A1-A4")
-                .expectedIllegalBecauseOf(IllegalMoveReason.ENEMY_PIECE_ON_WAY),
+                .expectedIllegalBecauseOf(IllegalMoveReason.OPPONENT_PIECE_IN_THE_WAY),
             PieceMoveTest()
                 .setup("white rook A1, white king G1, black rook A3")
                 .move("A1-B4")

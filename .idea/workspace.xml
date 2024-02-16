@@ -5,23 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82c63ef4-e03c-4641-a67c-9c8df8e5805e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/KingTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/PieceMoveTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/TextualPositionSetup.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Board.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Board.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Game.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Game.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Move.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Move.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Pieces.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Pieces.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/KingTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/KingTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/PieceMoveTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/PieceMoveTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/RookTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/RookTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/TestMoveHistory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/TestMoveHistory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/TextualPositionSetup.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/TextualPositionSetup.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,8 +70,8 @@
       <recent name="net.binarysailor.chessengine" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.KingTest">
-    <configuration name="KingTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.PawnTest">
+    <configuration name="PawnTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -91,7 +84,7 @@
           <list>
             <option value=":engine:test" />
             <option value="--tests" />
-            <option value="&quot;net.binarysailor.chessengine.KingTest&quot;" />
+            <option value="&quot;net.binarysailor.chessengine.PawnTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -102,7 +95,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="KingTest.should allow short castles (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PawnTest.should allow takes" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -115,7 +108,7 @@
           <list>
             <option value=":engine:test" />
             <option value="--tests" />
-            <option value="&quot;net.binarysailor.chessengine.KingTest.should allow short castles[1]&quot;" />
+            <option value="&quot;net.binarysailor.chessengine.PawnTest.should allow takes&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -126,7 +119,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="KingTest.should allow short castles" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PawnTest.should allow two squares forward" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -139,7 +132,7 @@
           <list>
             <option value=":engine:test" />
             <option value="--tests" />
-            <option value="&quot;net.binarysailor.chessengine.KingTest.should allow short castles&quot;" />
+            <option value="&quot;net.binarysailor.chessengine.PawnTest.should allow two squares forward&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -150,7 +143,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="MoveTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PawnTest.should not allow takes" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -163,7 +156,7 @@
           <list>
             <option value=":engine:test" />
             <option value="--tests" />
-            <option value="&quot;net.binarysailor.chessengine.MoveTest&quot;" />
+            <option value="&quot;net.binarysailor.chessengine.PawnTest.should not allow takes&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -174,7 +167,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="RookTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PawnTest.should not allow two squares forward" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -187,7 +180,7 @@
           <list>
             <option value=":engine:test" />
             <option value="--tests" />
-            <option value="&quot;net.binarysailor.chessengine.RookTest&quot;" />
+            <option value="&quot;net.binarysailor.chessengine.PawnTest.should not allow two squares forward&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -200,11 +193,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.KingTest" />
-        <item itemvalue="Gradle.KingTest.should allow short castles" />
-        <item itemvalue="Gradle.KingTest.should allow short castles (1)" />
-        <item itemvalue="Gradle.RookTest" />
-        <item itemvalue="Gradle.MoveTest" />
+        <item itemvalue="Gradle.PawnTest" />
+        <item itemvalue="Gradle.PawnTest.should allow takes" />
+        <item itemvalue="Gradle.PawnTest.should not allow takes" />
+        <item itemvalue="Gradle.PawnTest.should not allow two squares forward" />
+        <item itemvalue="Gradle.PawnTest.should allow two squares forward" />
       </list>
     </recent_temporary>
   </component>
@@ -223,9 +216,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/PieceMoveTest.kt</url>
-          <line>38</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Pieces.kt</url>
+          <line>108</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -10,6 +10,8 @@ data class Move(val from: Square, val to: Square) {
     fun rankDistance() = abs(from.rank - to.rank)
     fun fileDistance() = abs(from.file - to.file)
 
+    fun isForward(side: Side) = if (side == Side.WHITE) to.rank > from.rank else to.rank < from.rank
+
     fun path(): List<Square> {
         val fileDelta = to.file - from.file
         val rankDelta = to.rank - from.rank

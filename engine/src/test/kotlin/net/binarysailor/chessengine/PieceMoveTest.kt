@@ -1,6 +1,5 @@
 package net.binarysailor.chessengine
 
-import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.DynamicTest
 import org.junit.jupiter.api.DynamicTest.dynamicTest
 import kotlin.test.assertEquals
@@ -8,10 +7,12 @@ import kotlin.test.assertEquals
 class PieceMoveTest {
 
     private val setup: MutableList<String> = mutableListOf()
+    private var previousMoveSymbol: String? = null
     private lateinit var moveSymbol: String
     private var expectedIllegalMoveReason: IllegalMoveReason? = null
 
     fun setup(description: String) = apply { setup.addAll(description.split(",").map { it.trim() }) }
+    fun previousMove(move: String) = apply { this.previousMoveSymbol = move }
     fun move(move: String) = apply { this.moveSymbol = move }
 
     fun expectedLegal() = apply { this.expectedIllegalMoveReason = null }
@@ -34,15 +35,18 @@ class PieceMoveTest {
             val move = moveSymbol.parseAsMove()
             val piece = board.pieceAt(move.from) ?: throw IllegalArgumentException("No piece on ${move.from}")
 
-            val history = TestMoveHistory()
+            val history = moveHistory {
+                if (previousMoveSymbol != null) withLastMove(previousMoveSymbol!!.parseAsMove())
+            }
+
             // when
-            val illegalReason = piece.canMove(board, history , move)
+            val legality = piece.canMove(board, history, move)
 
             // then
             if (expectedIllegalMoveReason == null) {
-                assertNull(illegalReason)
+                assert(legality.legal())
             } else {
-                assertEquals(expectedIllegalMoveReason, illegalReason)
+                assertEquals(expectedIllegalMoveReason, legality.illegalReason)
             }
         }
     }

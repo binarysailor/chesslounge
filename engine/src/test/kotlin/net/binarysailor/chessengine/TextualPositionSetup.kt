@@ -8,9 +8,10 @@ internal class TextualPositionSetup(val board: Board) {
     internal fun add(description: String) {
         val (tside, tpiece, tsquare) = description.split(' ')
         val side = Side.valueOf(tside.uppercase())
-        val piece: Piece = when {
-            tpiece == "rook" -> Rook(side)
-            tpiece == "king" -> King(side)
+        val piece: Piece = when (tpiece) {
+            "rook" -> Rook(side)
+            "king" -> King(side)
+            "pawn" -> Pawn(side)
             else -> throw IllegalArgumentException("unknown piece")
         }
         //TODO("furhter pieces")

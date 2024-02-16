@@ -18,23 +18,25 @@ class Board {
         squares[square.rank - 1][square.file - 1] = piece
     }
 
-    internal fun findObstacle(path: List<Square>, movingSide: Side): IllegalMoveReason? {
+    internal fun findObstacle(path: List<Square>, movingSide: Side, takeAtFinalSquareAllowed: Boolean): IllegalMoveReason? {
         if (path.size < 2) {
-            throw IllegalArgumentException("No point finding an obstacle if the path is less than 2 squares")
+            return null
         }
 
-        val pieceInTheWay = path.drop(1).dropLast(1).map { pieceAt(it) }.find { it != null }
+        var pieceInTheWay = path.drop(1).dropLast(1).map { pieceAt(it) }.find { it != null }
+        if (pieceInTheWay == null) {
+            pieceInTheWay =
+                if (takeAtFinalSquareAllowed)
+                    pieceAt(path.last())?.takeIf { it.side == movingSide }
+                else
+                    pieceAt(path.last())
+        }
 
         if (pieceInTheWay != null) {
             return if (pieceInTheWay.side == movingSide)
-                IllegalMoveReason.FRIEND_PIECE_ON_WAY
+                IllegalMoveReason.FRIEND_PIECE_IN_THE_WAY
             else
-                IllegalMoveReason.ENEMY_PIECE_ON_WAY
-        }
-
-        val targetSquarePiece = pieceAt(path.last())
-        if (targetSquarePiece?.side == movingSide) {
-            return IllegalMoveReason.FRIEND_PIECE_ON_WAY
+                IllegalMoveReason.OPPONENT_PIECE_IN_THE_WAY
         }
 
         return null
@@ -50,6 +52,7 @@ data class Square(val file: Int, val rank: Int) {
 
     fun withFile(fileName: Char): Square = withFile(fileNameToIndex(fileName))
     fun withFile(file: Int) = Square(file, rank)
+    fun withRank(rank: Int) = Square(file, rank)
 
     companion object {
         private const val FILES = "abcdefgh"
