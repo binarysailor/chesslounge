@@ -138,3 +138,13 @@ data class Knight(override val side: Side) : Piece {
         }
     }
 }
+
+data class Bishop(override val side: Side) : Piece {
+    override fun canMove(board: Board, history: MoveHistory, move: Move): MoveLegality {
+        if (move.rankDistance() == move.fileDistance()) {
+            return checkPathClear(board, move)
+        } else {
+            return illegalBecause(ILLEGAL_MOVE_SHAPE)
+        }
+    }
+}

@@ -10,6 +10,7 @@ internal class TextualPositionSetup(val board: Board) {
         val side = Side.valueOf(tside.uppercase())
         val piece: Piece = when (tpiece) {
             "knight" -> Knight(side)
+            "bishop" -> Bishop(side)
             "rook" -> Rook(side)
             "king" -> King(side)
             "pawn" -> Pawn(side)
