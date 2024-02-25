@@ -5,10 +5,11 @@ internal class TextualPositionSetup(val board: Board) {
     /**
      * interprets descriptions like "white rook A1"
      */
-    internal fun add(description: String) {
+    internal fun placePiece(description: String) {
         val (tside, tpiece, tsquare) = description.split(' ')
         val side = Side.valueOf(tside.uppercase())
         val piece: Piece = when (tpiece) {
+            "knight" -> Knight(side)
             "rook" -> Rook(side)
             "king" -> King(side)
             "pawn" -> Pawn(side)

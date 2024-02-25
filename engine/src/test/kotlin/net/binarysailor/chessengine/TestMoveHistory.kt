@@ -12,7 +12,7 @@ class TestMoveHistory : MoveHistory {
         movesFrom.add(square)
     }
 
-    fun withLastMove(move: Move) {
+    fun withLastMove(move: Move?) {
         lastMove = move
     }
 }

@@ -127,3 +127,14 @@ data class Pawn(override val side: Side) : Piece {
     }
 
 }
+
+data class Knight(override val side: Side) : Piece {
+    override fun canMove(board: Board, history: MoveHistory, move: Move): MoveLegality {
+        if (move.rankDistance() * move.fileDistance() == 2) {
+            val targetPiece = board.pieceAt(move.to)
+            return if (targetPiece?.takeIf { it.side == this.side } == null) legal() else illegalBecause(FRIEND_PIECE_IN_THE_WAY)
+        } else {
+            return illegalBecause(ILLEGAL_MOVE_SHAPE)
+        }
+    }
+}
