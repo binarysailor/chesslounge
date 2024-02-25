@@ -1,4 +1,4 @@
-package net.binarysailor.chessengine
+package net.binarysailor.chesslounge.engine
 
 enum class Side {
                 WHITE, BLACK;

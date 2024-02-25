@@ -1,9 +1,9 @@
-package net.binarysailor.chessengine
+package net.binarysailor.chesslounge.engine
 
-import net.binarysailor.chessengine.IllegalMoveReason.FRIEND_PIECE_IN_THE_WAY
-import net.binarysailor.chessengine.IllegalMoveReason.ILLEGAL_MOVE_SHAPE
-import net.binarysailor.chessengine.MoveLegality.Companion.illegalBecause
-import net.binarysailor.chessengine.MoveLegality.Companion.legal
+import net.binarysailor.chesslounge.engine.IllegalMoveReason.FRIEND_PIECE_IN_THE_WAY
+import net.binarysailor.chesslounge.engine.IllegalMoveReason.ILLEGAL_MOVE_SHAPE
+import net.binarysailor.chesslounge.engine.MoveLegality.Companion.illegalBecause
+import net.binarysailor.chesslounge.engine.MoveLegality.Companion.legal
 import kotlin.math.max
 
 internal interface Piece {

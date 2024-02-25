@@ -5,7 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82c63ef4-e03c-4641-a67c-9c8df8e5805e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Pieces.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Pieces.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Board.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chesslounge/engine/Board.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Game.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chesslounge/engine/Game.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Move.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chesslounge/engine/Move.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Pieces.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chesslounge/engine/Pieces.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/BishopTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/BishopTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/KingTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/KingTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/KnightTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/KnightTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/MoveTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/MoveTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/PawnTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/PawnTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/PieceMoveTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/PieceMoveTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/RookTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/RookTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/SquareTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/SquareTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/TestMoveHistory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/TestMoveHistory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/TextualPositionSetup.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/test/kotlin/net/binarysailor/chessengine/TextualPositionSetup.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,21 +63,72 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/tomek/projects/chesslounge&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "last_opened_file_path": "/Users/tomek/projects/chesslounge"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chesslounge/engine" />
+    </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="net.binarysailor.chessengine" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.KnightTest.should allow simple legal moves">
+  <component name="RunManager" selected="Gradle.BishopTest">
+    <configuration name="BishopTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":engine:test" />
+            <option value="--tests" />
+            <option value="&quot;net.binarysailor.chessengine.BishopTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="BishopTest.should allow legal moves" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":engine:test" />
+            <option value="--tests" />
+            <option value="&quot;net.binarysailor.chessengine.BishopTest.should allow legal moves&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="KnightTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -110,54 +177,6 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="PawnTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":engine:test" />
-            <option value="--tests" />
-            <option value="&quot;net.binarysailor.chessengine.PawnTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="PawnTest.should allow takes" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":engine:test" />
-            <option value="--tests" />
-            <option value="&quot;net.binarysailor.chessengine.PawnTest.should allow takes&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="Tests in 'chesslounge.engine.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -182,11 +201,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.BishopTest" />
+        <item itemvalue="Gradle.BishopTest.should allow legal moves" />
         <item itemvalue="Gradle.KnightTest.should allow simple legal moves" />
         <item itemvalue="Gradle.KnightTest" />
         <item itemvalue="Gradle.Tests in 'chesslounge.engine.test'" />
-        <item itemvalue="Gradle.PawnTest" />
-        <item itemvalue="Gradle.PawnTest.should allow takes" />
       </list>
     </recent_temporary>
   </component>
@@ -205,7 +224,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chessengine/Pieces.kt</url>
+          <url>file://$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chesslounge/engine/Pieces.kt</url>
           <line>108</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>

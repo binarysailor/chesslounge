@@ -1,5 +1,9 @@
 package net.binarysailor.chessengine
 
+import net.binarysailor.chesslounge.engine.Move
+import net.binarysailor.chesslounge.engine.MoveHistory
+import net.binarysailor.chesslounge.engine.Square
+
 class TestMoveHistory : MoveHistory {
 
     private var lastMove: Move? = null

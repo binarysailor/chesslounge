@@ -1,6 +1,5 @@
-package net.binarysailor.chessengine
+package net.binarysailor.chesslounge.engine
 
-import java.lang.IllegalArgumentException
 import java.text.ParseException
 
 class Board {

@@ -1,4 +1,4 @@
-package net.binarysailor.chessengine
+package net.binarysailor.chesslounge.engine
 
 import kotlin.math.abs
 import kotlin.math.max

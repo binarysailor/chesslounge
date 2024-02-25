@@ -1,5 +1,6 @@
 package net.binarysailor.chessengine
 
+import net.binarysailor.chesslounge.engine.Move
 import kotlin.test.Test
 import kotlin.test.assertContains
 import kotlin.test.assertEquals
