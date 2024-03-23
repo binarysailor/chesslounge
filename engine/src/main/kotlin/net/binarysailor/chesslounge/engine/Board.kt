@@ -1,5 +1,6 @@
 package net.binarysailor.chesslounge.engine
 
+import net.binarysailor.chesslounge.engine.exception.IllegalMoveException
 import java.text.ParseException
 
 class Board {
@@ -7,14 +8,31 @@ class Board {
     private val squares: Array<Array<Piece?>> = Array(8) {
         Array(8) { null }
     }
+    private val gameRecord = GameRecord()
+
+
+    fun execute(moveSymbol: String) {
+        val move = Move.parse(moveSymbol)
+        val piece = pieceAt(move.from) ?: throw IllegalMoveException(IllegalMoveReason.NO_PIECE_FOUND)
+        val response = piece.tryMove(this, gameRecord, move)
+        if (!response.legality.legal) {
+            throw IllegalMoveException(response.legality.illegalReason!!)
+        }
+
+        move.execute(this)
+        response.sideEffects.forEach { it.execute(this) }
+        gameRecord.pieceMoved(move)
+    }
 
     internal fun pieceAt(square: Square): Piece? =
         squares[square.rank - 1][square.file - 1]
 
-    internal fun pieceAt(squareName: String) = pieceAt(Square.of(squareName))
-
     internal fun addPiece(square: Square, piece: Piece) {
         squares[square.rank - 1][square.file - 1] = piece
+    }
+
+    internal fun removePiece(square: Square) {
+        squares[square.rank - 1][square.file - 1] = null
     }
 
     internal fun findObstacle(path: List<Square>, movingSide: Side, takeAtFinalSquareAllowed: Boolean): IllegalMoveReason? {
@@ -43,7 +61,7 @@ class Board {
 
 }
 
-data class Square(val file: Int, val rank: Int) {
+internal data class Square(val file: Int, val rank: Int) {
 
     fun name(): String = FILES[file - 1] + rank.toString()
 
@@ -92,3 +110,4 @@ data class Square(val file: Int, val rank: Int) {
         }
     }
 }
+internal fun square(name: String) = Square.of(name)

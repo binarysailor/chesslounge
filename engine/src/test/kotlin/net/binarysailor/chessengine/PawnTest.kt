@@ -1,6 +1,10 @@
 package net.binarysailor.chessengine
 
 import net.binarysailor.chesslounge.engine.IllegalMoveReason.*
+import net.binarysailor.chesslounge.engine.Removal
+import net.binarysailor.chesslounge.engine.Square
+import net.binarysailor.chesslounge.engine.removal
+import net.binarysailor.chesslounge.engine.square
 import org.junit.jupiter.api.DynamicTest
 import org.junit.jupiter.api.TestFactory
 
@@ -100,6 +104,7 @@ class PawnTest {
                 .previousMove("B2-B4")
                 .move("C4-B3")
                 .expectedLegal()
+                .expectedSideEffect(removal("B4"))
                 .build()
         )
     }

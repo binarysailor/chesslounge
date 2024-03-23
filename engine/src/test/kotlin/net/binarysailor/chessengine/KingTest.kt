@@ -62,7 +62,19 @@ class KingTest {
             PieceMoveTest()
                 .setup("white king E1, white rook H1")
                 .move("E1-G1")
-                .expectedLegal(),
+                .expectedLegal()
+                .expectedSideEffect("H1-F1"),
+        ).map { it.build() }
+    }
+
+    @TestFactory
+    fun `should allow long castles`(): List<DynamicTest> {
+        return listOf(
+            PieceMoveTest()
+                .setup("white king E1, white rook A1, white rook G1")
+                .move("E1-C1")
+                .expectedLegal()
+                .expectedSideEffect("A1-D1"),
         ).map { it.build() }
     }
 }

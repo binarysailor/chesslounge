@@ -25,7 +25,7 @@ class KnightTest {
         return listOf(
             PieceMoveTest()
                 .setup("white knight B2, white pawn B3, white pawn C3, white king C2")
-                .moves("B2-C4", "B2-D3", "B2-D1", "B2-A4", "B2-C3")
+                .moves("B2-C4", "B2-D3", "B2-D1", "B2-A4")
                 .expectedLegal()
         ).map { it.build() }
     }

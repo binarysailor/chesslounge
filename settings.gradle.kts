@@ -11,3 +11,4 @@ plugins {
 
 rootProject.name = "chesslounge"
 include("engine")
+include("chesshouse")
