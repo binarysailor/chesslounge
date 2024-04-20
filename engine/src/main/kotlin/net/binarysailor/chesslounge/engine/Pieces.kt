@@ -148,3 +148,15 @@ internal class Bishop(override val side: Side) : Piece() {
         }
     }
 }
+
+internal class Queen(override val side: Side) : Piece() {
+    override fun tryMove(board: Board, history: MoveHistory, move: Move): MoveResponse {
+        if (move.rankDistance > 0 && move.fileDistance == 0
+            || move.rankDistance == 0 && move.fileDistance > 0
+            || move.rankDistance == move.fileDistance) {
+            return simpleMoveIfPathClear(board, move)
+        } else {
+            return illegalBecause(ILLEGAL_MOVE_SHAPE)
+        }
+    }
+}

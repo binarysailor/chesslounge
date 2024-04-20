@@ -17,6 +17,7 @@ internal class TextualPositionSetup(val board: Board) {
             "rook" -> Rook(side)
             "king" -> King(side)
             "pawn" -> Pawn(side)
+            "queen" -> Queen(side)
             else -> throw IllegalArgumentException("unknown piece")
         }
         //TODO("furhter pieces")
