@@ -1,7 +1,4 @@
-package net.binarysailor.chessengine
-
-import net.binarysailor.chesslounge.engine.*
-import net.binarysailor.chesslounge.engine.Piece
+package net.binarysailor.chesslounge.engine
 
 internal class TextualPositionSetup(val board: Board) {
 
@@ -20,7 +17,6 @@ internal class TextualPositionSetup(val board: Board) {
             "queen" -> Queen(side)
             else -> throw IllegalArgumentException("unknown piece")
         }
-        //TODO("furhter pieces")
         val square = Square.of(tsquare)
 
         board.addPiece(square, piece)

@@ -13,7 +13,7 @@ class Game(white: Player, black: Player) {
         players = mapOf(WHITE to white, BLACK to black)
     }
     fun move(moveSymbol: String) {
-        board.execute(Move.parse(moveSymbol))
+        board.execute(moveSymbol)
     }
 }
 

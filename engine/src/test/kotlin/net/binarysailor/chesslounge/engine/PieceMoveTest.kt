@@ -1,9 +1,9 @@
-package net.binarysailor.chessengine
+package net.binarysailor.chesslounge.engine
 
-import net.binarysailor.chesslounge.engine.Board
+import net.binarysailor.chesslounge.engine.*
 import net.binarysailor.chesslounge.engine.BoardModification
-import net.binarysailor.chesslounge.engine.IllegalMoveReason
 import net.binarysailor.chesslounge.engine.Move
+import net.binarysailor.chesslounge.engine.TextualPositionSetup
 import org.junit.jupiter.api.DynamicTest
 import org.junit.jupiter.api.DynamicTest.dynamicTest
 import kotlin.test.assertEquals

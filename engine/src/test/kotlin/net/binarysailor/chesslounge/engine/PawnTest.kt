@@ -1,4 +1,4 @@
-package net.binarysailor.chessengine
+package net.binarysailor.chesslounge.engine
 
 import net.binarysailor.chesslounge.engine.IllegalMoveReason.*
 import net.binarysailor.chesslounge.engine.Removal

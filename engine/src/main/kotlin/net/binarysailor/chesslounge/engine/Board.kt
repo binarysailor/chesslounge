@@ -10,6 +10,11 @@ class Board {
     }
     private val gameRecord = GameRecord()
 
+    init {
+        initialPosition()
+        gameRecord.reset()
+        sideToMove = Side.WHITE
+    }
 
     fun execute(moveSymbol: String) {
         val move = Move.parse(moveSymbol)
@@ -59,6 +64,36 @@ class Board {
         return null
     }
 
+    private fun initialPosition() {
+        Square.FILES.forEach { file ->
+            (3..6).forEach { rank ->
+                removePiece(Square.of("${file}${rank}"))
+            }
+        }
+        val t = TextualPositionSetup(this)
+        t.placePiece("white rook A1")
+        t.placePiece("white rook H1")
+        t.placePiece("white knight B1")
+        t.placePiece("white knight G1")
+        t.placePiece("white bishop C1")
+        t.placePiece("white bishop F1")
+        t.placePiece("white queen D1")
+        t.placePiece("white king E1")
+        Square.FILES.forEach {
+            t.placePiece("white pawn ${it}2")
+        }
+        t.placePiece("black rook A8")
+        t.placePiece("black rook H8")
+        t.placePiece("black knight B8")
+        t.placePiece("black knight G8")
+        t.placePiece("black bishop C8")
+        t.placePiece("black bishop F8")
+        t.placePiece("black queen D8")
+        t.placePiece("black king E8")
+        Square.FILES.forEach {
+            t.placePiece("black pawn ${it}7")
+        }
+    }
 }
 
 internal data class Square(val file: Int, val rank: Int) {
@@ -72,7 +107,7 @@ internal data class Square(val file: Int, val rank: Int) {
     fun withRank(rank: Int) = Square(file, rank)
 
     companion object {
-        private const val FILES = "abcdefgh"
+        internal const val FILES = "abcdefgh"
 
         private fun fileNameToIndex(fileName: Char): Int {
             if (fileName.lowercase() !in FILES) {

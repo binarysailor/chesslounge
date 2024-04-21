@@ -1,4 +1,4 @@
-package net.binarysailor.chessengine
+package net.binarysailor.chesslounge.engine
 
 import net.binarysailor.chesslounge.engine.Move
 import net.binarysailor.chesslounge.engine.MoveHistory
