@@ -1,33 +1,55 @@
 package net.binarysailor.chesslounge.chesshouse
 
-import net.binarysailor.chesslounge.chesshouse.api.GamesResponse
-import net.binarysailor.chesslounge.chesshouse.api.serializer.JsonTransformer
-import spark.Spark.get
-import spark.Spark.port
+import net.binarysailor.chesslounge.chesshouse.api.buildChessHouseApi
 
-class ChessHouse {
-    private val games: GameRepository = GameRepository()
+class ChessHouse(private val games: GameRepository) {
+    private val connectedPlayers: MutableMap<Player, PlayerChannel> = mutableMapOf()
 
     fun games(): List<Game> = games.allGames()
 
-    fun createGame(white: Player, black: Player): Game {
+    fun createGame(white: Player, black: Player, messagesToSend: ((Player) -> InstantMessage)? = null): Game {
         val game = Game(white, black)
         games.add(game)
+        messagesToSend?.let {msg ->
+            connectedPlayers.filterKeys { it == white || it == black }.forEach { (player, channel) -> channel.send(msg.invoke(player)) }
+        }
         return game
+    }
+
+    fun addPlayer(player: Player, channel: PlayerChannel) {
+        connectedPlayers[player] = channel
+    }
+
+    fun removePlayer(player: Player) {
+        connectedPlayers.remove(player)
+    }
+
+    fun playerPlaying(player: Player): Boolean {
+        return games.allGames().any { it.currentlyPlayed && it.hasPlayer(player) }
+    }
+
+    fun messagePlayer(target: Player, message: InstantMessage) {
+        (connectedPlayers[target] ?: throw TargetUnreachable("$target not connected")).send(message)
     }
 }
 
-fun main() {
-    val chessHouse = ChessHouse()
-    val json = JsonTransformer()
-
-    port(8122)
-
-    get("/games", fun (req, res): GamesResponse {
-        return GamesResponse(chessHouse.games().map { it.toApiResponse() })
-    }, json)
+interface PlayerChannel {
+    fun send(message: InstantMessage)
 }
 
-fun Game.toApiResponse(): net.binarysailor.chesslounge.chesshouse.api.Game {
-    return net.binarysailor.chesslounge.chesshouse.api.Game(this.id.id, this.white.name, this.black.name)
+class TargetUnreachable(msg: String) : kotlin.NoSuchElementException(msg)
+
+enum class MessageType {
+    SEEK_RESPONSE,
+    GAME_STARTED
+}
+
+data class InstantMessage(val type: MessageType, val payload: Any)
+
+fun main() {
+    val gameRepository = GameRepository()
+    val chessHouse = ChessHouse(gameRepository)
+    val playerRepository = PlayerRepository()
+    val gameMatcher = GameMatcher(chessHouse)
+    buildChessHouseApi(chessHouse, playerRepository, gameMatcher)
 }

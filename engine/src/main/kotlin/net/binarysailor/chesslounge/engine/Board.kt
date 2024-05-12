@@ -3,7 +3,7 @@ package net.binarysailor.chesslounge.engine
 import net.binarysailor.chesslounge.engine.exception.IllegalMoveException
 import java.text.ParseException
 
-class Board {
+class Board(standardPosition: Boolean = true) {
     private var sideToMove: Side = Side.WHITE
     private val squares: Array<Array<Piece?>> = Array(8) {
         Array(8) { null }
@@ -11,7 +11,9 @@ class Board {
     private val gameRecord = GameRecord()
 
     init {
-        initialPosition()
+        if (standardPosition) {
+            initialPosition()
+        }
         gameRecord.reset()
         sideToMove = Side.WHITE
     }

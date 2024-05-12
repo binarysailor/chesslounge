@@ -38,7 +38,7 @@ internal class PieceMoveTest {
 
         return dynamicTest(testName) {
             // given
-            val board = Board()
+            val board = Board(false)
             val positionSetup = TextualPositionSetup(board)
             initialPiecePlacements.forEach { positionSetup.placePiece(it) }
 

@@ -1,3 +1,10 @@
 package net.binarysailor.chesslounge.chesshouse
 
-data class Player(val name: String)
+import java.util.UUID
+
+data class Player(val id: PlayerID, val name: String)
+
+@JvmInline
+value class PlayerID(val id: UUID) {
+    override fun toString() = id.toString()
+}
