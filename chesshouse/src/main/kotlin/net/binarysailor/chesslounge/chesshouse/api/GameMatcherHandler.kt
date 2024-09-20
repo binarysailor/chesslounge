@@ -1,11 +1,8 @@
 package net.binarysailor.chesslounge.chesshouse.api
 
-import com.google.gson.Gson
 import net.binarysailor.chesslounge.chesshouse.ChessHouse
 import net.binarysailor.chesslounge.chesshouse.GameMatcher
-import net.binarysailor.chesslounge.chesshouse.InstantMessage
 import net.binarysailor.chesslounge.chesshouse.Player
-import net.binarysailor.chesslounge.chesshouse.PlayerChannel
 import net.binarysailor.chesslounge.chesshouse.PlayerRepository
 import org.eclipse.jetty.websocket.api.Session
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose
@@ -14,7 +11,7 @@ import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage
 import org.eclipse.jetty.websocket.api.annotations.WebSocket
 
 @WebSocket
-class GameMatcherHandler(private val playerRepository: PlayerRepository, private val chessHouse: ChessHouse, private val gameMatcher: GameMatcher) {
+internal class GameMatcherHandler(private val playerRepository: PlayerRepository, private val chessHouse: ChessHouse, private val gameMatcher: GameMatcher) {
 
     @OnWebSocketConnect
     fun onConnect(user: Session) {
@@ -44,14 +41,3 @@ class GameMatcherHandler(private val playerRepository: PlayerRepository, private
     }
 }
 
-internal data class WebSocketPlayerChannel(private val session: Session): PlayerChannel {
-    companion object {
-        private val gson = Gson()
-    }
-
-    override fun send(message: InstantMessage) {
-        session.remote.sendString(message.asJson())
-    }
-
-    private fun InstantMessage.asJson() = gson.toJson(this)
-}

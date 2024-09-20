@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    implementation(libs.micrometer.core)
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation(kotlin("test"))

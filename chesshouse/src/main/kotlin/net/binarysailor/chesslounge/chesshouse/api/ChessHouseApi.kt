@@ -1,20 +1,18 @@
 package net.binarysailor.chesslounge.chesshouse.api
 
-import net.binarysailor.chesslounge.chesshouse.ChessHouse
-import net.binarysailor.chesslounge.chesshouse.GameMatcher
-import net.binarysailor.chesslounge.chesshouse.Player
-import net.binarysailor.chesslounge.chesshouse.PlayerRepository
+import net.binarysailor.chesslounge.chesshouse.*
 import spark.Request
+import spark.Spark
 import spark.Spark.before
 import spark.Spark.get
 import spark.Spark.path
 import spark.Spark.port
 import spark.Spark.webSocket
 
-fun buildChessHouseApi(chessHouse: ChessHouse, playerRepository: PlayerRepository, gameMatcher: GameMatcher) {
+fun runChessHouseApi(config: ChessHouseConfiguration, chessHouse: ChessHouse, playerRepository: PlayerRepository, gameMatcher: GameMatcher) {
     val json = JsonTransformer()
 
-    port(8122)
+    port(config.port)
 
     webSocket("/game-matcher", GameMatcherHandler(playerRepository, chessHouse, gameMatcher))
 
@@ -30,6 +28,10 @@ fun buildChessHouseApi(chessHouse: ChessHouse, playerRepository: PlayerRepositor
             return GamesResponse(games.map { it.toApiResponse() })
         }, json)
     }
+}
+
+fun stopChessHouseApi() {
+    Spark.stop()
 }
 
 fun net.binarysailor.chesslounge.chesshouse.Game.toApiResponse(): Game {

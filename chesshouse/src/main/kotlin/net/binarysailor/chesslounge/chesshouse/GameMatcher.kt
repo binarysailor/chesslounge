@@ -1,9 +1,8 @@
 package net.binarysailor.chesslounge.chesshouse
 
-import net.binarysailor.chesslounge.chesshouse.MessageType.GAME_STARTED
-import net.binarysailor.chesslounge.chesshouse.MessageType.SEEK_RESPONSE
-import org.eclipse.jetty.util.ConcurrentHashSet
-import java.util.UUID
+import net.binarysailor.chesslounge.chesshouse.messages.GameStartedMessage
+import net.binarysailor.chesslounge.chesshouse.messages.SeekResponseMessage
+import java.util.*
 import java.util.concurrent.BlockingQueue
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.LinkedBlockingQueue
@@ -22,7 +21,7 @@ class GameMatcher(private val chessHouse: ChessHouse) {
         }
     }
 
-    fun addSeeker(seeker: Player): SeekRequestID {
+    fun addSeeker(seeker: Player): SeekID {
         val request = SeekRequest(seeker)
         requests.put(request)
         return request.id
@@ -47,33 +46,23 @@ class GameMatcher(private val chessHouse: ChessHouse) {
             val black = i.next()
             val whiteRequest = seekers.remove(white)
             val blackRequest = seekers.remove(black)
-            chessHouse.createGame(white, black) { player ->
-                InstantMessage(
-                    GAME_STARTED,
-                    mapOf(
-                        "seekRequestId" to (if (player == white) whiteRequest!!.id.id else blackRequest!!.id.id),
-                        "white" to mapOf("name" to white.name, "id" to white.id.id),
-                        "black" to mapOf("name" to black.name, "id" to black.id.id)
-                    )
-                )
+            chessHouse.createGame(white, black) { player, game ->
+                GameStartedMessage(if (player == white) whiteRequest!!.id else blackRequest!!.id, game.id, white, black)
             }
         }
     }
 
     private fun respondFailure(request: SeekRequest, message: String) {
-        chessHouse.messagePlayer(request.player, InstantMessage(
-            SEEK_RESPONSE, SeekResponse(request.id, false, message)))
+        chessHouse.messagePlayer(request.player, SeekResponseMessage(request.id, false, message))
     }
 
     private fun respondSuccess(request: SeekRequest) {
-        chessHouse.messagePlayer(request.player, InstantMessage(
-            SEEK_RESPONSE, SeekResponse(request.id, true)))
+        chessHouse.messagePlayer(request.player, SeekResponseMessage(request.id, true))
     }
 
-    data class SeekRequest(val player: Player, val id: SeekRequestID = SeekRequestID())
-    data class SeekResponse(val id: SeekRequestID, val ok: Boolean, val message: String? = null)
+    data class SeekRequest(val player: Player, val id: SeekID = SeekID())
     @JvmInline
-    value class SeekRequestID(val id: UUID) {
+    value class SeekID(val id: UUID) {
         constructor() : this(UUID.randomUUID())
     }
 }

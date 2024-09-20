@@ -1,17 +1,18 @@
 package net.binarysailor.chesslounge.chesshouse
 
-import net.binarysailor.chesslounge.chesshouse.api.buildChessHouseApi
+import net.binarysailor.chesslounge.chesshouse.api.runChessHouseApi
+import net.binarysailor.chesslounge.chesshouse.messages.InstantMessage
 
 class ChessHouse(private val games: GameRepository) {
     private val connectedPlayers: MutableMap<Player, PlayerChannel> = mutableMapOf()
 
     fun games(): List<Game> = games.allGames()
 
-    fun createGame(white: Player, black: Player, messagesToSend: ((Player) -> InstantMessage)? = null): Game {
+    fun createGame(white: Player, black: Player, messagesToSend: ((Player, Game) -> InstantMessage)? = null): Game {
         val game = Game(white, black)
         games.add(game)
         messagesToSend?.let {msg ->
-            connectedPlayers.filterKeys { it == white || it == black }.forEach { (player, channel) -> channel.send(msg.invoke(player)) }
+            connectedPlayers.filterKeys { it == white || it == black }.forEach { (player, channel) -> channel.send(msg.invoke(player, game)) }
         }
         return game
     }
@@ -39,17 +40,16 @@ interface PlayerChannel {
 
 class TargetUnreachable(msg: String) : kotlin.NoSuchElementException(msg)
 
-enum class MessageType {
-    SEEK_RESPONSE,
-    GAME_STARTED
-}
-
-data class InstantMessage(val type: MessageType, val payload: Any)
+data class ChessHouseConfiguration(val port: Int)
 
 fun main() {
+    runChessHouse()
+}
+
+fun runChessHouse(config: ChessHouseConfiguration = ChessHouseConfiguration(8122)) {
     val gameRepository = GameRepository()
     val chessHouse = ChessHouse(gameRepository)
     val playerRepository = PlayerRepository()
     val gameMatcher = GameMatcher(chessHouse)
-    buildChessHouseApi(chessHouse, playerRepository, gameMatcher)
+    runChessHouseApi(config, chessHouse, playerRepository, gameMatcher)
 }

@@ -1,6 +1,5 @@
 package net.binarysailor.chesslounge.engine
 
-import net.binarysailor.chesslounge.engine.IllegalMoveReason
 import org.junit.jupiter.api.DynamicTest
 import org.junit.jupiter.api.TestFactory
 
