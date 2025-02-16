@@ -1,24 +1,23 @@
 package net.binarysailor.chesslounge.chesshouse.api
 
-import net.binarysailor.chesslounge.chesshouse.*
+import net.binarysailor.chesslounge.chesshouse.ChessHouse
+import net.binarysailor.chesslounge.chesshouse.ChessHouseConfiguration
+import net.binarysailor.chesslounge.chesshouse.GameMatcher
+import net.binarysailor.chesslounge.chesshouse.api.authentication.Authenticator
+import net.binarysailor.chesslounge.chesshouse.model.Player
 import spark.Request
 import spark.Spark
-import spark.Spark.before
-import spark.Spark.get
-import spark.Spark.path
-import spark.Spark.port
-import spark.Spark.webSocket
+import spark.Spark.*
 
-fun runChessHouseApi(config: ChessHouseConfiguration, chessHouse: ChessHouse, playerRepository: PlayerRepository, gameMatcher: GameMatcher) {
+fun runChessHouseApi(config: ChessHouseConfiguration, authenticator: Authenticator, chessHouse: ChessHouse, gameMatcher: GameMatcher, playerMessaging: WSPlayerMessaging) {
     val json = JsonTransformer()
 
     port(config.port)
 
-    webSocket("/game-matcher", GameMatcherHandler(playerRepository, chessHouse, gameMatcher))
+    webSocket("/house", ChessHouseWSHandler(authenticator, chessHouse, gameMatcher, playerMessaging))
 
-    before({ req, res ->
-        val authHeader = req.headers("Authorization") ?: throw UnauthorisedAccess()
-        setPlayer(req, playerRepository.findPlayerByName(authHeader) ?: throw UnauthorisedAccess())
+    before({ req, _ ->
+        setPlayer(req, authenticator.authenticatePlayer(req))
     })
 
 
@@ -34,14 +33,10 @@ fun stopChessHouseApi() {
     Spark.stop()
 }
 
-fun net.binarysailor.chesslounge.chesshouse.Game.toApiResponse(): Game {
+fun net.binarysailor.chesslounge.chesshouse.model.Game.toApiResponse(): Game {
     return Game(this.id.id, this.white.name, this.black.name)
 }
 
 fun setPlayer(req: Request, player: Player) {
     req.attribute("_player", player)
 }
-
-fun user(req: Request): Player = req.attribute("_player")
-
-class UnauthorisedAccess : IllegalArgumentException()

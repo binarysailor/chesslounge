@@ -4,7 +4,9 @@ import net.binarysailor.chesslounge.engine.exception.IllegalMoveException
 import java.text.ParseException
 
 class Board(standardPosition: Boolean = true) {
-    private var sideToMove: Side = Side.WHITE
+    var sideToMove: Side = Side.WHITE
+        private set
+
     private val squares: Array<Array<Piece?>> = Array(8) {
         Array(8) { null }
     }
@@ -18,9 +20,12 @@ class Board(standardPosition: Boolean = true) {
         sideToMove = Side.WHITE
     }
 
-    fun execute(moveSymbol: String) {
+    fun execute(moveSymbol: String): Int {
         val move = Move.parse(moveSymbol)
         val piece = pieceAt(move.from) ?: throw IllegalMoveException(IllegalMoveReason.NO_PIECE_FOUND)
+        if (piece.side != sideToMove) {
+            throw IllegalMoveException(IllegalMoveReason.INVALID_PIECE_SIDE)
+        }
         val response = piece.tryMove(this, gameRecord, move)
         if (!response.legality.legal) {
             throw IllegalMoveException(response.legality.illegalReason!!)
@@ -29,6 +34,10 @@ class Board(standardPosition: Boolean = true) {
         move.execute(this)
         response.sideEffects.forEach { it.execute(this) }
         gameRecord.pieceMoved(move)
+
+        sideToMove = sideToMove.opposite()
+
+        return gameRecord.lastMoveNumber
     }
 
     internal fun pieceAt(square: Square): Piece? =

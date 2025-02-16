@@ -1,5 +1,7 @@
 package net.binarysailor.chesslounge.engine
 
+import kotlin.math.ceil
+
 internal class GameRecord : MoveHistory {
 
     private val moves : MutableList<Move> = mutableListOf()
@@ -9,4 +11,7 @@ internal class GameRecord : MoveHistory {
     override fun hasMovesFrom(square: Square) = moves.any { it.from == square }
 
     override fun lastMove(): Move? = if (moves.size > 0) moves[moves.lastIndex] else null
+
+    val lastMoveNumber: Int
+        get() = ceil( moves.size.toDouble() / 2).toInt()
 }

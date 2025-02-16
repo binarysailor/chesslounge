@@ -1,6 +1,6 @@
-package net.binarysailor.chesslounge.chesshouse
+package net.binarysailor.chesslounge.chesshouse.model
 
-import net.binarysailor.chesslounge.chesshouse.GameStatus.CURRENTLY_PLAYED
+import net.binarysailor.chesslounge.chesshouse.model.GameStatus.CURRENTLY_PLAYED
 import net.binarysailor.chesslounge.engine.*
 import net.binarysailor.chesslounge.engine.Side.BLACK
 import net.binarysailor.chesslounge.engine.Side.WHITE
@@ -10,7 +10,7 @@ import java.util.UUID.randomUUID
 class Game(white: Player, black: Player) {
 
     val id: GameID = GameID(randomUUID())
-    private val board: Board = Board()
+    val board: Board = Board()
     private val players: Map<Side, Player>
     private var status: GameStatus = CURRENTLY_PLAYED
 
@@ -26,10 +26,11 @@ class Game(white: Player, black: Player) {
     init {
         players = mapOf(WHITE to white, BLACK to black)
     }
-    fun move(moveSymbol: String) {
-        board.execute(moveSymbol)
-    }
-    fun hasPlayer(player: Player) = white == player || black == player
+    fun move(moveSymbol: String) = board.execute(moveSymbol)
+
+    fun hasPlayer(player: Player) = playerSide(player) != null
+
+    fun playerSide(player: Player): Side? = if (white == player) WHITE else if (black == player) BLACK else null
 }
 
 @JvmInline

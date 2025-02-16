@@ -1,4 +1,4 @@
-package net.binarysailor.chesslounge.chesshouse
+package net.binarysailor.chesslounge.chesshouse.model
 
 import java.util.UUID
 

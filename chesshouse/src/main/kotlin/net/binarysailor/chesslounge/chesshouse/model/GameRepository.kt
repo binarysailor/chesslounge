@@ -1,4 +1,4 @@
-package net.binarysailor.chesslounge.chesshouse
+package net.binarysailor.chesslounge.chesshouse.model
 
 class GameRepository {
     private val games: MutableMap<GameID, Game> = mutableMapOf()

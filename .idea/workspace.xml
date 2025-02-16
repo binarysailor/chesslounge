@@ -4,10 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82c63ef4-e03c-4641-a67c-9c8df8e5805e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/GitLink.xml" afterDir="false" />
+    <list default="true" id="82c63ef4-e03c-4641-a67c-9c8df8e5805e" name="Changes" comment="Unfortunately a mix of things">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/api/WSPlayerMessaging.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/api/authentication/Authenticator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/model/FENPosition.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/model/messaging/MessageDefinitions.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/model/messaging/PlayerMessages.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chesshouse/src/test/kotlin/net/binarysailor/chesslounge/chesshouse/api/WSPlayerMessagingTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chesshouse/src/test/kotlin/net/binarysailor/chesslounge/chesshouse/testutil/WebSocketSessions.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/intTest/kotlin/net/binarysailor/chesslounge/client/ChessLoungeE2ETest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/kotlin/net/binarysailor/chesslounge/client/Commands.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/kotlin/net/binarysailor/chesslounge/client/Game.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/kotlin/net/binarysailor/chesslounge/client/Move.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/kotlin/net/binarysailor/chesslounge/client/Position.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chesshouse/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/chesshouse/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/ChessHouse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/ChessHouse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/Game.kt" beforeDir="false" afterPath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/model/Game.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/GameMatcher.kt" beforeDir="false" afterPath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/GameMatcher.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/GameRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/model/GameRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/Player.kt" beforeDir="false" afterPath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/model/Player.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/PlayerRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/model/PlayerRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/api/ChessHouseApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/api/ChessHouseApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/api/GameMatcherHandler.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/api/User.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/api/WebSocketPlayerChannel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/messages/Messages.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/intTest/kotlin/net/binarysailor/chesslounge/client/ChessLoungeClientTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/kotlin/net/binarysailor/chesslounge/client/ChessLoungeClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/kotlin/net/binarysailor/chesslounge/client/ChessLoungeClient.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/kotlin/net/binarysailor/chesslounge/client/Identifiers.kt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/kotlin/net/binarysailor/chesslounge/client/Identifiers.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/kotlin/net/binarysailor/chesslounge/client/InstantMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/kotlin/net/binarysailor/chesslounge/client/Response.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chesslounge/engine/Board.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chesslounge/engine/Board.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chesslounge/engine/GameRecord.kt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chesslounge/engine/GameRecord.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,12 +59,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="chesslounge" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -43,12 +70,22 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Kotlin File" />
         <option value="Kotlin Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KotlinScriptingSettings">
+    <scriptDefinition className="org.jetbrains.kotlin.scripting.resolve.KotlinScriptDefinitionFromAnnotatedTemplate" definitionName="KotlinBuildScript">
+      <order>2147483647</order>
+      <autoReloadConfigurations>true</autoReloadConfigurations>
+    </scriptDefinition>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -78,17 +115,20 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/chesshouse/src/main/kotlin/net/binarysailor/chesslounge/chesshouse/api" />
       <recent name="$PROJECT_DIR$/engine/src/main/kotlin/net/binarysailor/chesslounge/engine" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="net.binarysailor.chesslounge.chesshouse.api.authentication" />
       <recent name="net.binarysailor.chesslounge.chesshouse.api" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="net.binarysailor.chesslounge.chesshouse.api" />
       <recent name="net.binarysailor.chessengine" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.ChessHouseKt">
-    <configuration name="BishopTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="JUnit.All in chesslounge">
+    <configuration name="ChessLoungeE2ETest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -99,9 +139,9 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":engine:test" />
+            <option value=":client:intTest" />
             <option value="--tests" />
-            <option value="&quot;net.binarysailor.chessengine.BishopTest&quot;" />
+            <option value="&quot;net.binarysailor.chesslounge.client.ChessLoungeE2ETest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -112,7 +152,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="BishopTest.should allow legal moves" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ChessLoungeE2ETest.a legal move sent by wrong side is not accepted" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -123,9 +163,9 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":engine:test" />
+            <option value=":client:intTest" />
             <option value="--tests" />
-            <option value="&quot;net.binarysailor.chessengine.BishopTest.should allow legal moves&quot;" />
+            <option value="&quot;net.binarysailor.chesslounge.client.ChessLoungeE2ETest.a legal move sent by wrong side is not accepted&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -136,7 +176,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="KnightTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ChessLoungeE2ETest.a move on each side is accepted" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -147,9 +187,9 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":engine:test" />
+            <option value=":client:intTest" />
             <option value="--tests" />
-            <option value="&quot;net.binarysailor.chessengine.KnightTest&quot;" />
+            <option value="&quot;net.binarysailor.chesslounge.client.ChessLoungeE2ETest.a move on each side is accepted&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -160,7 +200,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="KnightTest.should allow simple legal moves" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ChessLoungeE2ETest.a move on illegal side is not accepted" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -171,9 +211,9 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":engine:test" />
+            <option value=":client:intTest" />
             <option value="--tests" />
-            <option value="&quot;net.binarysailor.chessengine.KnightTest.should allow simple legal moves&quot;" />
+            <option value="&quot;net.binarysailor.chesslounge.client.ChessLoungeE2ETest.a move on illegal side is not accepted&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -184,20 +224,21 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ChessHouseKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="net.binarysailor.chesslounge.chesshouse.ChessHouseKt" />
-      <module name="chesslounge.chesshouse.main" />
+    <configuration name="All in chesslounge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chesslounge" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.ChessHouseKt" />
-        <item itemvalue="Gradle.BishopTest" />
-        <item itemvalue="Gradle.BishopTest.should allow legal moves" />
-        <item itemvalue="Gradle.KnightTest.should allow simple legal moves" />
-        <item itemvalue="Gradle.KnightTest" />
+        <item itemvalue="JUnit.All in chesslounge" />
+        <item itemvalue="Gradle.ChessLoungeE2ETest" />
+        <item itemvalue="Gradle.ChessLoungeE2ETest.a move on each side is accepted" />
+        <item itemvalue="Gradle.ChessLoungeE2ETest.a legal move sent by wrong side is not accepted" />
+        <item itemvalue="Gradle.ChessLoungeE2ETest.a move on illegal side is not accepted" />
       </list>
     </recent_temporary>
   </component>
@@ -218,6 +259,10 @@
       <updated>1701952317734</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Unfortunately a mix of things" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unfortunately a mix of things" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -22,7 +22,9 @@ import kotlin.concurrent.thread
 class ChessLoungeClient(private val serverUrl: URL, private val handler: Handler) {
     interface Handler {
         fun seekResponseReceived(seekId: SeekID)
-        fun gameStarted(seekId: SeekID, gameId: GameID)
+        fun gameStarted(gameId: GameID, white: Player, black: Player, seekId: SeekID?)
+        fun playerMoved(gameId: GameID, move: Move, newPosition: Position)
+        fun moveAttempted(gameId: GameID, move: Move, code: String, message: String?)
     }
 
     constructor(serverUrl: String, handler: Handler) : this(URL(serverUrl), handler)
@@ -46,7 +48,7 @@ class ChessLoungeClient(private val serverUrl: URL, private val handler: Handler
                 method = HttpMethod.Get,
                 host = serverUrl.host,
                 port = serverUrl.port,
-                path = "/game-matcher"
+                path = "/house"
             ) { header("Authorization", user) }
         }
 
@@ -55,7 +57,7 @@ class ChessLoungeClient(private val serverUrl: URL, private val handler: Handler
                 while (true) {
                     try {
                         webSocketSession?.incoming?.receive()?.apply {
-                            val message = objectMapper.readValue(data, InstantMessage::class.java)
+                            val message = objectMapper.readValue(data, Response::class.java)
                             message.handle(handler)
                         }
                     } catch (e: ClosedReceiveChannelException) {
@@ -72,34 +74,53 @@ class ChessLoungeClient(private val serverUrl: URL, private val handler: Handler
 
     suspend fun seekPlay() {
         coroutineScope {
-            webSocketSession!!.send("seekplay")
+            val command = SeekPlayCommand()
+            webSocketSession!!.send(objectMapper.writeValueAsString(command))
         }
+    }
+
+    suspend fun move(gameId: GameID, moveSymbol: String) {
+        val command = MoveCommand(gameId, moveSymbol)
+        webSocketSession!!.send(objectMapper.writeValueAsString(command))
     }
 
     class InstantMessageModule : SimpleModule() {
         init {
-            addDeserializer(InstantMessage::class.java, InstantMessageDeserializer())
+            addDeserializer(Response::class.java, InstantMessageDeserializer())
         }
     }
 
-    internal class InstantMessageDeserializer : JsonDeserializer<InstantMessage>() {
-        override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): InstantMessage {
+    internal class InstantMessageDeserializer : JsonDeserializer<Response>() {
+        override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): Response {
             val node = p!!.readValueAsTree<JsonNode>()
             val type = node["type"].textValue()
             return when (type) {
-                "SEEK_RESPONSE" -> InstantMessage.SeekResponse(
+                "SEEK_RESPONSE" -> Response.SeekResponse(
                     UUID.fromString(node["seekId"].textValue()),
                     node["ok"].booleanValue(),
                     node["message"]?.asText()
                 )
 
-                "GAME_STARTED" -> InstantMessage.GameStarted(
-                    UUID.fromString(node["seekId"].textValue()),
+                "GAME_STARTED" -> Response.GameStarted(
                     UUID.fromString(node["gameId"].textValue()),
                     player(node["white"]),
-                    player(node["black"])
+                    player(node["black"]),
+                    if (node.has("seekId")) UUID.fromString(node["seekId"].textValue()) else null
                 )
 
+                "MOVE_RESPONSE" -> Response.MoveResponse(
+                    UUID.fromString(node["gameId"].textValue()),
+                    node["symbol"].textValue(),
+                    node["error"]?.let {
+                        Response.MoveResponse.Error(it["code"].textValue(), it["message"].textValue())
+                    },
+                    node["success"]?.let {
+                        Response.MoveResponse.Success(
+                            it["number"].intValue(),
+                            it["newPosition"].textValue()
+                        )
+                    }
+                )
                 else -> null
             } ?: throw IllegalStateException("Cannot deserialize message")
         }
